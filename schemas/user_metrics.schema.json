@@ -1,0 +1,23 @@
+{
+    "schemaName": "user_metrics",
+    "dimensionFieldSpecs": [
+        {
+            "name": "userId",
+            "dataType": "STRING"
+        }
+    ],
+    "metricFieldSpecs": [
+        {
+            "name": "latencyMs",
+            "dataType": "INT"
+        }
+    ],
+    "dateTimeFieldSpecs": [
+        {
+            "name": "eventTime",
+            "dataType": "STRING",
+            "format": "1:MILLISECONDS:EPOCH",
+            "granularity": "1:MILLISECONDS"
+        }
+    ]
+}

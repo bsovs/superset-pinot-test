@@ -1,0 +1,27 @@
+{
+    "tableName": "user_metrics",
+    "tableType": "REALTIME",
+    "segmentsConfig": {
+        "timeColumnName": "eventTime",
+        "schemaName": "user_metrics",
+        "replication": "1"
+    },
+    "tableIndexConfig": {
+        "loadMode": "MMAP",
+        "streamConfigs": {
+            "streamType": "kafka",
+            "stream.kafka.topic.name": "my-realtime-topic",
+            "stream.kafka.consumer.type": "simple",
+            "stream.kafka.broker.list": "kafka:29092",
+            "stream.kafka.decoder.class.name": "org.apache.pinot.plugin.stream.kafka.KafkaJSONMessageDecoder",
+            "stream.kafka.decoder.prop.schema.registry.url": "",
+            "stream.kafka.consumer.prop.auto.offset.reset": "smallest"
+        }
+    },
+    "ingestionConfig": {
+        "transformConfigs": []
+    },
+    "tenants": {},
+    "metadata": {},
+    "indexingConfig": {}
+}
