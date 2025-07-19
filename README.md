@@ -20,7 +20,7 @@ This will launch Zookeeper, Kafka, Pinot (controller, broker, server, minion), a
 
 ### 2. Upload Pinot Schema & Table Config
 ```sh
-docker compose run --rm producer python upload_pinot_schema.py
+docker compose exec -it producer python upload_pinot_schema.py
 ```
 This uploads the schema and table config to the Pinot controller.
 

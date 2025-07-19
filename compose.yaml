@@ -76,3 +76,25 @@ services:
       - pinot-controller
     command: >
       /bin/sh -c " superset db upgrade && superset fab create-admin --username admin --firstname Superset --lastname Admin --email admin@superset.com --password admin && superset init && superset run -h 0.0.0.0 -p 8088"
+
+  pinot-init:
+    image: python:3.12
+    depends_on:
+      - pinot-controller
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "pip install requests && python init_pinot.py"
+    networks:
+      - default
+
+  superset-init:
+    image: python:3.12
+    depends_on:
+      - superset
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "pip install requests && python init_superset.py"
+    networks:
+      - default
